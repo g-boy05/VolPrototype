@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ArtzaTechnologies.DAL.Domains.Avion>
+
+@{
+    ViewData["Title"] = "Liste des avions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des avions</h2>
+<p>
+    <a asp-action="Create">Ajouter nouveau avion</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConsommationParKm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EffortDecollage)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Libelle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsommationParKm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EffortDecollage)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Détails</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+

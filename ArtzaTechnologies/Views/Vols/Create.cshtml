@@ -1,0 +1,53 @@
+﻿@model ArtzaTechnologies.DAL.Domains.Vol
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<h4>Vol</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Avion" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Avion.Id, (IEnumerable<SelectListItem>)ViewBag.ListeAvion, "---- Sélectionner ----", new { @class = "form-control" })
+                <span asp-validation-for="Avion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AeroportDepart" class="control-label"></label>
+                @Html.DropDownListFor(model => model.AeroportDepart.Id, (IEnumerable<SelectListItem>)ViewBag.ListeAeroport, "---- Sélectionner ----", new { @class = "form-control" })
+                <span asp-validation-for="AeroportDepart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AeroportArrivee" class="control-label"></label>
+                @Html.DropDownListFor(model => model.AeroportArrivee.Id, (IEnumerable<SelectListItem>)ViewBag.ListeAeroport, "---- Sélectionner ----", new { @class = "form-control" })
+                <span asp-validation-for="AeroportArrivee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateDepart" class="control-label"></label>
+                <input asp-for="DateDepart" type="datetime-local" class="form-control" />
+                <span asp-validation-for="DateDepart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateArrivee" class="control-label"></label>
+                <input asp-for="DateArrivee" type="datetime-local" class="form-control" />
+                <span asp-validation-for="DateArrivee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

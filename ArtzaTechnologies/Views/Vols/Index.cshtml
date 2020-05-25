@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ArtzaTechnologies.Dto.VolDto>
+@{
+    ViewData["Title"] = "Liste des vols";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des avions</h2>
+<p>
+    <a asp-action="Create">Ajouter nouveau vol</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Avion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DureeVol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrivee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Distance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KeroseneNecessaire)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Avion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DureeVol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Depart)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Arrivee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KeroseneNecessaire)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Détails</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

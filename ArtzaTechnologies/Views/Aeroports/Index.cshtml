@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ArtzaTechnologies.DAL.Domains.Aeroport>
+@{
+    ViewData["Title"] = "Liste des des aeroports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Liste des aeroports</h2>
+<p>
+    <a asp-action="Create">Ajouter nouveau vol</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longtitude)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longtitude)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Détails</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Modifier</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Supprimer</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+

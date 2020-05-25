@@ -1,0 +1,57 @@
+﻿@model ArtzaTechnologies.Dto.VolDto
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Vous etes sure de supprimer le vol suivant?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Avion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Avion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Depart)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Depart)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Arrivee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Arrivee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Distance)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Distance)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DureeVol)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DureeVol)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.KeroseneNecessaire)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KeroseneNecessaire)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
+
